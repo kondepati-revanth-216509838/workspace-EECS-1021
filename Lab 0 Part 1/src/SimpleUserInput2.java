@@ -12,8 +12,9 @@ public class SimpleUserInput2 {
 		double n2 = input.nextDouble(); //necessary
 		
 		System.out.println("What's your name: ");
-		String name = input.nextLine();
+		String name = input.next();
 		
+
 		double average = (n1 + n2) / 2;
 		
 		System.out.print(name + ", ");
