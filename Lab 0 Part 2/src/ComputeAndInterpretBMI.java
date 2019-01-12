@@ -7,10 +7,14 @@ public class ComputeAndInterpretBMI {
 		
 		System.out.println("Enter your name: ");
 		String name = input.next();
+		
 		System.out.println(name + ", enter your height in inches:");
 		double height = input.nextDouble() * 0.0254;
+		
 		System.out.println(name + ", enter your weight in pounds:");
 		double weight = input.nextDouble() * 0.45359237;
+		
+		input.close();
 		
 		double BMI = weight / Math.pow(height, 2);
 		
@@ -25,8 +29,6 @@ public class ComputeAndInterpretBMI {
 		} else if (BMI >= 30) {
 			System.out.println("You are obese!");
 		}
-
-
 
 	}
 

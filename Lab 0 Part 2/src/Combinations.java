@@ -6,50 +6,58 @@ public class Combinations {
 		Scanner input = new Scanner (System.in);
 		
 		String numPlace = null;
-		String[] x = new String [4];
-		int [] y = new int [4];
+		String[] i = new String [4];
+		int [] j = new int [4];
 		
 		
 		//1st sequence input
-		for (int i = 1; i <= 4; i++) {
+		
+			System.out.println("Enter the 1st string:");
+			i[0] = input.nextLine();
+		
+			System.out.println("Enter the 2nd string:");
+			i[1] = input.nextLine();
 			
-			
-			switch (i) {
-			case 1: numPlace = "st"; break;
-			case 2: numPlace = "nd"; break;
-			case 3: numPlace = "rd"; break;
-			case 4: numPlace = "th"; break;
-			}
-			
-			System.out.println("Enter the " + i + numPlace+ " string:");
-			x[i - 1] = input.nextLine();
-		}
+			System.out.println("Enter the 3rd string:");
+			i[2] = input.nextLine();
+		
+			System.out.println("Enter the 4th string:");
+			i[3] = input.nextLine();
 		
 	
 		//2nd sequence input
-		for (int i = 1; i <= 4; i ++) {
-			
-			switch (i) {
-			case 1: numPlace = "st"; break;
-			case 2: numPlace = "nd"; break;
-			case 3: numPlace = "rd"; break;
-			case 4: numPlace = "th"; break;
-			}
-		System.out.println("Enter the " + i + numPlace + " integer:");
-		y[i - 1] = input.nextInt();
 		
-		}
+		System.out.println("Enter the 1st integer:");
+		j[0] = input.nextInt();
+		
+		System.out.println("Enter the 2nd integer:");
+		j[1] = input.nextInt();
+		
+		System.out.println("Enter the 3rd integer:");
+		j[2] = input.nextInt();
+		
+		System.out.println("Enter the 4th integer:");
+		j[3] = input.nextInt();
 		
 		input.close();
 		
 		//Display all 16 combinations
-		for (int i = 1; i <= 4; i ++) {
-			
-			for (int j = 1; j <= 4; j ++) {
-				System.out.println("(" + x[i - 1] + ", " + y[j - 1] + ")");
-			} 
-			
-		}
+		System.out.println("(" + i[0] + " , " + j[0] + ")");
+		System.out.println("(" + i[0] + " , " + j[1] + ")");
+		System.out.println("(" + i[0] + " , " + j[2] + ")");
+		System.out.println("(" + i[0] + " , " + j[3] + ")");
+		System.out.println("(" + i[1] + " , " + j[0] + ")");
+		System.out.println("(" + i[1] + " , " + j[1] + ")");
+		System.out.println("(" + i[1] + " , " + j[2] + ")");
+		System.out.println("(" + i[1] + " , " + j[3] + ")");
+		System.out.println("(" + i[2] + " , " + j[0] + ")");
+		System.out.println("(" + i[2] + " , " + j[1] + ")");
+		System.out.println("(" + i[2] + " , " + j[2] + ")");
+		System.out.println("(" + i[2] + " , " + j[3] + ")");
+		System.out.println("(" + i[3] + " , " + j[0] + ")");
+		System.out.println("(" + i[3] + " , " + j[1] + ")");
+		System.out.println("(" + i[3] + " , " + j[2] + ")");
+		System.out.println("(" + i[3] + " , " + j[3] + ")");
 	}
 
 }
