@@ -5,9 +5,6 @@ public class sumOfCrossProduct {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		//Used as a string prompt handler
-		String numPlace = null;
-		
 		//Declared important variables (2 matrices and sum).
 		int[] point1 = new int [4];
 		int[] point2 = new int [4];

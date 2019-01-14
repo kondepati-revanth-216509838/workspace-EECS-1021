@@ -5,7 +5,6 @@ public class Combinations {
 	public static void main(String[] args) {
 		Scanner input = new Scanner (System.in);
 		
-		String numPlace = null;
 		String[] i = new String [4];
 		int [] j = new int [4];
 		
@@ -40,6 +39,8 @@ public class Combinations {
 		j[3] = input.nextInt();
 		
 		input.close();
+		
+		System.out.println("Here are all 16 possible combinations: ");
 		
 		//Display all 16 combinations
 		System.out.println("(" + i[0] + " , " + j[0] + ")");
