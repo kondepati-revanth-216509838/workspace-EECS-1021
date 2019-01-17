@@ -67,6 +67,8 @@ public class RockPaperScissorsGame {
 			CheckScores(P1Play,P2Play);
 		}
 		
+		input.close();
+		
 		if (P1Wins == P2Wins) {
 			System.out.println("Game over: a tie between " + P1Name + " and " + P2Name);
 		
@@ -114,6 +116,7 @@ public class RockPaperScissorsGame {
 			P2Wins +=1;
 			P1Losses +=1;
 		}
+		
 		
 	}
 
