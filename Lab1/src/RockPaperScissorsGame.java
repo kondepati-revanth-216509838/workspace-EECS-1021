@@ -54,7 +54,7 @@ public class RockPaperScissorsGame {
 		
 		CheckScores(P1Play,P2Play);
 		
-		if (P1Wins == P2Wins) {
+		
 			round += 1;
 			printRound(round);
 			
@@ -65,7 +65,6 @@ public class RockPaperScissorsGame {
 			P2Play = input.nextLine();
 			
 			CheckScores(P1Play,P2Play);
-		}
 		
 		input.close();
 		
