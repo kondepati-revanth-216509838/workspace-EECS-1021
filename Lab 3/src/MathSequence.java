@@ -83,7 +83,104 @@ public class MathSequence {
 				/*Big load of thinking required (read what he wants from this 3rd task)
 				 * 
 				 * */
-				determineArithmeticSeq();
+				
+				boolean isIt = true;
+				
+				series = new int[10];
+				String yesOrNo = "";
+				int nInputs = 0;
+				for (int i= 0; i < series.length; i ++) {
+					System.out.println("Enter a new number: ");
+					series[i] = input.nextInt();
+					sigma += series[i];
+					nInputs = i + 1;
+					
+					
+					if (i < series.length - 1) {
+						System.out.println("You have entered " + nInputs + " numbers.");
+						System.out.println("You may still enter another " + (10 - nInputs) + " numbers.");
+						input.nextLine();
+						
+						while (yesOrNo.equals("")) {
+						System.out.println("Would you like to enter another number? (Y/N)");
+						yesOrNo = input.nextLine();
+						
+							if (yesOrNo.equals("Y")) {
+								break;
+							} else if (yesOrNo.equals("N")) {
+								break;
+							} else {
+								System.out.println("Invalid input.");
+								yesOrNo = "";
+							}
+						}
+						
+						if (yesOrNo.equals("Y")) {
+							yesOrNo = "";
+						} else if (yesOrNo.equals("N")) {
+							yesOrNo = "";
+							break;
+						}
+						
+						
+					} else {
+						System.out.println("You have entered the maximum number of numbers!");
+						System.out.println("We will start processing your sequence right away.");
+						break;
+					}
+				}
+				
+				if (nInputs > 1) {
+				
+					int seqD[] = new int [nInputs - 1];
+					
+					for (int i = 0; i < nInputs - 1; i ++) {
+						if(i < nInputs - 2) {
+						seqD[i] = series[i + 1]  - series[i];
+						if (i > 0 && seqD[i] != seqD[i - 1]) {
+							isIt = false;
+							break;
+						}
+						
+						} 
+						
+					
+						
+					}
+					
+					System.out.print("<");
+					for (int i = 0; i < nInputs; i ++) {
+						if (i < nInputs - 1) {
+						System.out.print(series[i] + ", ");
+						} else {
+							System.out.print(series[i]);
+						}
+					}
+					System.out.print("> ");
+					
+					if (isIt == false) {
+						System.out.println(" is not an arithmetic sequence.");
+					} else if (isIt == true) {
+						System.out.println("is an arithmetic sequence with ");
+						System.out.println("first term " + series[0] + ", common difference " + (series[1] - series[0]) + ", length " + (seqD.length + 1) + " and sum " + sigma);
+					}
+					
+					
+				} else {
+					System.out.println("Error: we cannot infer the common difference from a sequence size one.");
+				}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 			} else {
 				System.out.println("Error: task number must be 1, 2, or 3.");
@@ -91,16 +188,17 @@ public class MathSequence {
 			
 			while (!yesNo.equals("Y") && !yesNo.equals("N")){
 				System.out.println("Would you like to process another sequence? (Y/N)");
-				yesNo = input.nextLine();
 				input.nextLine();
-				if (yesNo.equals("N")) {
-					break;
-				} else if (yesNo.equals("Y")) {
-					break;
-					//do nothing.
-				} else {
-					System.out.println("Invalid input.");
-				}
+				yesNo = input.nextLine();
+				
+//				if (yesNo.equals("N")) {
+//					break;
+//				} else if (yesNo.equals("Y")) {
+//					break;
+//					//do nothing.
+//				} else {
+//					System.out.println("Invalid input.");
+//				}
 			}
 			
 			if (yesNo.equals("N")) {
@@ -116,50 +214,6 @@ public class MathSequence {
 		input.close();
 
 	}
-	
-	
-	public static void determineArithmeticSeq() {
-		/*Think about this question right after you reach home.
-		 * */
-		Scanner input = new Scanner (System.in);
-		
-		/*How to do this??
-		 * Ask the number
-		 * Ask whether he'll input extra numbers or not (till it reaches 9, because 10 will be the end)
-		 * Run the loop for 10 times (max)
-		 * 
-		 * if the input is more than 1 then check the all Ds are equal or else it's not arithmetic sequence
-		 * */
-		
-		int series [] = new int [10];
-		String yOrN = "";
-		
-		for (int i = 0; i < series.length; i ++) {
-		System.out.println("Enter a new number:");
-		series[i] = input.nextInt();
-		
-		System.out.println("Would you like to enter another new number? (Y/N)");
-		input.nextLine();
-		yOrN = input.nextLine();
-		
-		
-		
-		
-		if (yOrN.equals("Y")) {
-			//do nothing.
-		} else if (yOrN.equals("N")) {
-			break;
-		} else {
-			System.out.println("Invalid input");
-		}
-		
-		yOrN = "";
-		}
-		
-		input.close();
-			
-}
-		
 		
 		
 }
