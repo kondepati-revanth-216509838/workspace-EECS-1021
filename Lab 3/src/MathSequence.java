@@ -170,47 +170,40 @@ public class MathSequence {
 					System.out.println("Error: we cannot infer the common difference from a sequence size one.");
 				}
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+				//End choice == 3
 				
 			} else {
 				System.out.println("Error: task number must be 1, 2, or 3.");
 			}
 			
-			while (!yesNo.equals("Y") && !yesNo.equals("N")){
-				System.out.println("Would you like to process another sequence? (Y/N)");
+			
+			while (yesNo.equals("")) {
 				input.nextLine();
+				System.out.println("Would you like to process another sequence? (Y/N)");
 				yesNo = input.nextLine();
 				
-//				if (yesNo.equals("N")) {
-//					break;
-//				} else if (yesNo.equals("Y")) {
-//					break;
-//					//do nothing.
-//				} else {
-//					System.out.println("Invalid input.");
-//				}
+				if (yesNo.equals("Y")) {
+					break;
+				} else if (yesNo.equals("N")) {
+					break;
+				} else {
+					System.out.println("Invalid input.");
+					yesNo = "";
+				}
 			}
 			
-			if (yesNo.equals("N")) {
-				System.out.println("Bye!");
-				break;
-			} else {
+			if (yesNo.equals("Y")) {
 				yesNo = "";
+			} else if (yesNo.equals("N")) {
+				yesNo = "";
+				break;
 			}
+			
+			
 		}
 		
-		
-		
+		System.out.println("Bye!");
+
 		input.close();
 
 	}
