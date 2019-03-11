@@ -59,18 +59,22 @@ public class Account {
 	}
 	
 	public void transferTo(Account account, double transfer) {
-		double serviceCharge = transfer * 0.1;
-		if (this.type == 'i') {
-			this.amount -=  transfer + serviceCharge;
-		} else {
-			this.amount -= transfer; 
-		}
+//		double serviceCharge = transfer * 0.1;
+//		if (this.type == 'i') {
+//			this.amount -=  transfer + serviceCharge;
+//		} else {
+//			this.amount -= transfer; 
+//		}
+//		
+//		
+//		if (account.type == 'i') {
+//			account.amount +=  transfer - serviceCharge;
+//		} else {
+//			account.amount += transfer;
+//		}
 		
-		
-		if (account.type == 'i') {
-			account.amount +=  transfer - serviceCharge;
-		} else {
-			account.amount += transfer;
-		}
+		// This code below is written this way for efficiency
+		this.withdraw(transfer);
+		account.deposit(transfer);
 	}
 }

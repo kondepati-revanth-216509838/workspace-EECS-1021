@@ -1,53 +1,68 @@
 package points_v2;
-/*
- * This class is a template for 2-D points.
- * At runtime, we may instantiate as many 2-D point instances as we wish.
- * */
+
 public class Point {
-/*
- * Attributes: class-level variable. 
- * The scope of attributes are every method in the current class.
- */
-	double x; // typically you do not initialize the attributes here.
-	double y;
-	
-	/*
-	 * Constructors: "methods" for constructing new instances of Point 
-	 * Note: Here we are DEFINING constructors.
-	 * Rule: the name of the constructor must be the SAME as the class name
-	 */
-	
-	// Version 1: create a new Point using two values for x and y.
-	Point(double x, double y){
-		x = x;
-		y = y;
-	//	newX = x; not right, you should never re-assign input parameter
-	}
-	
-	// Version 2: create a new Point either along the X axis or along the Y axis.
-	// Assumption: axis can either be 'x' or 'y' (if a point is created along the x-axis or) 'y'.
-	Point(char axis, double distance){
-		if (axis == 'x') {
-			x = distance;
-			y = 0;
-		} else {
-			x = 0;
-			y = distance;
-		}
-	}
-	/*
-	 * Adding these two versions of constructors will give a compile-time error.
-	 * Because from the compiler's point of view,
-	 * both are expecting a single double value, so when you call Point(3.4),
-	 * it is confusing as to which version to call. Hence the compile-time error.
-	 */
-//	Point(double distanceFromXAxis){
-//		
-//	}
-//	
-//	Point(double distanceFromYAxis){
-//		
-//	}
-	
-	
+    
+    double x;
+    double y;
+    
+    Point(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
+    
+    Point(char axis, double distance){
+        if(axis == 'x') {
+            x = distance;
+            y = 0;
+        }
+        else {
+            this.x = 0;
+            this.y = distance;
+        }
+    }
+    
+    double getDistanceFromOrigin() {
+        double distance = 0.0;
+        
+        distance = Math.sqrt(this.x * this.x + Math.pow(y, 2));
+        
+        return distance;
+    }
+    
+    String getDescription() {
+        String description = "";
+        
+        description = "(" + this.x + ", " + this.y + ")";
+        
+        return description;
+    }
+    
+    double getDistanceFrom(Point other) {
+        double distance = 0.0;
+        
+        distance = Math.sqrt(
+                    Math.pow(this.x - other.x, 2) +
+                    Math.pow(this.x - other.x, 2));
+        return distance;
+        
+    }
+    
+    void move(char direction, double units) {
+        if(direction == 'U') {
+            this.y = this.y + units;
+        }
+        
+        else if(direction == 'D') {
+            this.y = this.y - units;
+        }
+        
+        else if(direction == 'L') {
+            this.x = this.x - units;
+        }
+        
+        else {
+            this.x = this.x + units;
+        }
+    }
+
 }
