@@ -3,17 +3,22 @@ package model;
 public class StudentManagementSystem {
 	
 	Student Students[];
-	int nOS;
+	int nos;
 	
 	public StudentManagementSystem(){
-		int length = (int) (5*Math.pow(10,10));
+		int length = 5;
 		this.Students = new Student[length];
-		this.nOS = 0;
+		this.nos = 0;
 	}
 	
 	public String getDescription() {
 		String description = "Student ";
 		return description;
+	}
+	
+	public void addStudent(Student student) {
+		Students[nos] = student;
+		nos++;
 	}
 	
 

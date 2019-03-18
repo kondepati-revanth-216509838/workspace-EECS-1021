@@ -2,9 +2,9 @@ package model;
 
 public class Faculty {
 
-	String name;
-	String address;
-	int extension;
+	public String name;
+	public String address;
+	public int extension;
 	
 	public Faculty(String name, String address, int extension){
 		this.name = name;
