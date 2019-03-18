@@ -157,7 +157,7 @@ public class SMSTester {
 		System.out.println("=============== (9.2)");
 		System.out.println("Size of SMS: " + sms.getStudents().length);
 		System.out.print("Students successfully added: ");
-		System.out.println(sms.getStudents()[2].name.equals("Heeyeon"));
+		System.out.println(sms.getStudents()[1].name.equals("Heeyeon"));
 		
 		System.out.println("=============== (10)");
 		/*

@@ -12,7 +12,10 @@ public class StudentManagementSystem {
 	}
 	
 	public String getDescription() {
-		String description = "Student ";
+		String description = "Student management system currently stores " + this.nos + " students: \n";
+		for (int i = 0; i < this.nos; i ++) {
+			description += "\n" +  Students[i].getDescription();
+		}
 		return description;
 	}
 	
@@ -23,32 +26,68 @@ public class StudentManagementSystem {
 	
 
 	public Student[] getStudents() {
-		// TODO Auto-generated method stub
-		return null;
+		Student temp [] = new Student[this.nos];
+		for (int i = 0; i < this.nos; i ++) {
+			temp[i] = Students[i];
+		}
+		return temp;
 	}
 
-	public void setMarks(String string, String string2, int i) {
-		// TODO Auto-generated method stub
+	public void setMarks(String name, String code, int marks) {
+		int index = this.indexOf(name);
+		
+		if (index >= 0) {
+			Students[index].setMarks(code, marks);
+		}
 		
 	}
 
-	public String getGPA(String string) {
-		// TODO Auto-generated method stub
-		return null;
+	public double getGPA(String name) {
+		int index = this.indexOf(name);
+		double gpa = 0.0;
+		if (index >= 0) {
+			gpa = Students[index].getGPA();
+		}
+		return gpa;
 	}
 
-	public char[] getMarks(String string, String string2) {
-		// TODO Auto-generated method stub
-		return null;
+	public int getMarks(String name, String code) {
+		int marks = -1;
+		int index = this.indexOf(name);
+		
+		if (index >= 0) {
+			marks = Students[index].getMarks(code);	
+		}
+		
+		return marks;
+	}
+	
+	int indexOf(String name) {
+		int index = -1;
+		boolean found = false;
+		
+		for (int i = 0; i < this.nos && !found; i ++) {
+			if (Students[i].name.equals(name)) {
+				index = i;
+			}
+		}
+		
+		return index;
 	}
 
-	public void addStudent(String string) {
-		// TODO Auto-generated method stub
+	public void addStudent(String name) {
+		Student temp = new Student (name);
+		Students[nos] = temp;
+		nos ++;
 		
 	}
 
-	public void addCourse(String string, CourseRecord cr6) {
-		// TODO Auto-generated method stub
+	public void addCourse(String name, CourseRecord course) {
+		int index = this.indexOf(name);
+		
+		if (index >= 0) {
+			Students[index].addCourse(course);
+		}
 		
 	}
 	
