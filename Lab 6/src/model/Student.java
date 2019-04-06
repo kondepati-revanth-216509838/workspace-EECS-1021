@@ -5,7 +5,7 @@ public class Student {
 	public final int MAX_NUM_COURSES = 5;
 	public CourseRecord [] courses;
 	public int noc;
-	
+	double gpa = 0.0;
 	public Student (String name) {
 		this.name = name;
 		this.courses = new CourseRecord [MAX_NUM_COURSES];
@@ -26,27 +26,25 @@ public class Student {
 	
 	public int getMarks(String title) {
 		int marks = -1;
-//		boolean found = false;
-//		
-//		for (int i = 0; i < this.noc && !found; i ++) {
-//			if (this.courses[i].getTitle().equals(title)) {
-//				found = true;
-//				marks = this.courses[i].getMarks();
-//			}
-//		}
-//		
-//		if (!found) {
-//			marks = -1;
-//		}
+		boolean found = false;
 		
-		int index = this.indexOf(title);
-		
-		if (index >= 0){
-			marks = this.courses[index].getMarks();
+		for (int i = 0; i < this.noc && !found; i ++) {
+			if (this.courses[i].getTitle().equals(title)) {
+				found = true;
+				marks = this.courses[i].getMarks();
+			}
 		}
 		
+		if (!found) {
+			marks = -1;
+		}
 		
-		
+//		int index = this.indexOf(title);
+//		
+//		if (index >= 0){
+//			marks = this.courses[index].getMarks();
+//		}
+//		
 		return marks;
 	}
 	
@@ -82,31 +80,35 @@ public class Student {
 		return index;
 	}
 	
-	double getGPA() {
+	public double getGPA() {
 		double gpa = 0.0;
 		double gp = 0.0;
-		
-		for (int i = 0; i < this.noc; i ++) {
-//			CourseRecord c = this.courses[i];
-//			String lg = c.getLetterGrade();
-			String lg = this.courses[i].getLetterGrade();
-			if (lg.equals("A+")) {
-				gp += 9;
-			} else if (lg.equals("A")) {
-				gp += 8;
-			} else if (lg.equals("B")) {
-				gp += 7;
-			} else if (lg.equals("C")) {
-				gp += 6;
-			} else if (lg.equals("D")) {
-				gp += 5;
-			} else if (lg.equals("F")) {
-				gp += 0;
-			} 
 
-		}
-		
-		gpa = gp/this.noc;
+			for (int i = 0; i < this.noc; i ++) {
+//				CourseRecord c = this.courses[i];
+//				String lg = c.getLetterGrade();
+				String lg = this.courses[i].getLetterGrade();
+				if (lg.equals("A+")) {
+					gp += 9;
+				} else if (lg.equals("A")) {
+					gp += 8;
+				} else if (lg.equals("B")) {
+					gp += 7;
+				} else if (lg.equals("C")) {
+					gp += 6;
+				} else if (lg.equals("D")) {
+					gp += 5;
+				} else {
+					gp += 0;
+				} 
+
+			}
+			
+			if (this.noc != 0) {
+			
+				gpa = gp/this.noc;
+			
+			}
 		
 		return gpa;
 	}

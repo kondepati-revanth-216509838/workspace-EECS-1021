@@ -43,20 +43,21 @@ public class StudentManagementSystem {
 	}
 
 	public double getGPA(String name) {
+		double gpa = -1;
 		int index = this.indexOf(name);
-		double gpa = 0.0;
+		
 		if (index >= 0) {
 			gpa = Students[index].getGPA();
 		}
 		return gpa;
 	}
 
-	public int getMarks(String name, String code) {
+	public int getMarks(String name, String course) {
 		int marks = -1;
 		int index = this.indexOf(name);
 		
 		if (index >= 0) {
-			marks = Students[index].getMarks(code);	
+			marks = Students[index].getMarks(course);	
 		}
 		
 		return marks;
@@ -69,6 +70,7 @@ public class StudentManagementSystem {
 		for (int i = 0; i < this.nos && !found; i ++) {
 			if (Students[i].name.equals(name)) {
 				index = i;
+				found = true;
 			}
 		}
 		
