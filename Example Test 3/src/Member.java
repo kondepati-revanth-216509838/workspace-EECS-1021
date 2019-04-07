@@ -16,6 +16,13 @@ public class Member {
 		orders = new Order[5];
 		
 	}
+	
+	public Member() {
+		this.Balance = 0;
+		idNum++;
+		ID = "mem" + idNum;
+		orders = new Order[5];
+	}
 
 	public String getName() {
 		return Name;
@@ -50,8 +57,26 @@ public class Member {
 		orderNum += 1;
 	}
 	
-	public double getAmountToPay() {
-		
+	public void addOrder(Order temp) {
+		addOrder(temp.product, temp.price, temp.quantity);
 	}
-
+	
+	public double getAmountToPay() {
+		double loan = 0.0;
+		
+		for (int i = 0; i <orderNum; i ++) {
+			loan += orders[i].price * orders[i].quantity;
+		}
+		
+		return loan;
+	}
+	
+	public void deposit(double deposit) {
+		this.Balance += deposit;
+	}
+	
+	public void withdraw (double withdraw) {
+		this.Balance -= withdraw;
+	}
+	
 }
